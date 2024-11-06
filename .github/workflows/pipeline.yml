@@ -13,7 +13,7 @@ jobs:
      - uses: actions/checkout@v2
      - name: install nginx into EC2 machine and deploy file    
        env:
-        PRIVATE_KEY: ${ { secret.PRIVATE_SECRET_KEY } }
+        PRIVATE_KEY: ${{ secrets.PRIVATE_SECRET_KEY }}
        run: |
         echo "$PRIVATE_KEY" > NewAxeCred-3.pem && chmod 600 NewAxeCred-3.pem
         
