@@ -15,7 +15,7 @@ jobs:
        env:
         PRIVATE_SECRET_KEY: ${ { secret.PRIVATE_SECRET_KEY } }
        run: |
-        echo "$PRIVATE_SECRET_KEY" > NewAxeCred-3.pem && chmod 600 NewAxeCred-3.pem
+        echo "$ PRIVATE_SECRET_KEY" > NewAxeCred-3.pem && chmod 600 NewAxeCred-3.pem
         
         echo "copying local file into EC2 machine"
         scp -o StrictHostKeyChecking=no -i NewAxeCred-3.pem index.html ec2-user@ec2-18-132-196-1.eu-west-2.compute.amazonaws.com:~/
