@@ -18,6 +18,10 @@
 
 # Successful deployment must indicate access to the website/page via a public browser
 
+    - Access MUST be GRANTED
+
 
 # Amend the Security Group to restrict access to Nginx_Server to your IP address and verify with any    public browser
 
+
+    -   Access MUST be DENIED
