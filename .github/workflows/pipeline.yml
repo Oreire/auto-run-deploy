@@ -6,21 +6,21 @@ on:
 jobs:
   Deploy:
 
-   name: "deploy to EC2"
+   name: "deploy to Nginx_Server"
    runs-on: ubuntu-latest
    
    steps:
      - uses: actions/checkout@v2
-     - name: install nginx into EC2 machine and deploy file    
+     - name: install nginx into Nginx_Server machine and deploy file    
        env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_SECRET_KEY }}
        run: |
         echo "$PRIVATE_KEY" > NewCred.pem && chmod 600 NewCred.pem
         
-        echo "Copying index.html file into EC2 machine"
+        echo "Copying index.html file into Nginx_Server machine"
         scp -o StrictHostKeyChecking=no -i NewCred.pem index.html ec2-user@ec2-18-132-196-1.eu-west-2.compute.amazonaws.com:~/
         
-        echo "connecting to EC2 machine via ssh & installing nginx"
+        echo "connecting to Nginx_Server machine via ssh & installing nginx"
         ssh -o StrictHostKeyChecking=no -i NewCred.pem ec2-user@ec2-18-132-196-1.eu-west-2.compute.amazonaws.com '
         sudo yum install nginx -y
         sudo service nginx start
