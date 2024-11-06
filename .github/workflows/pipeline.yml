@@ -22,6 +22,7 @@ jobs:
         
         echo "connecting to EC2 machine via ssh & installing nginx"
         ssh -o StrictHostKeyChecking=no -i SSH-KEY.pem ec2-user@ec2-18-134-240-111.eu-west-2.compute.amazonaws.com '
+        sudo yum update
         sudo yum install nginx -y
         sudo service ngix start
         sudo mv ~/index.html /usr/share/nginx/html
