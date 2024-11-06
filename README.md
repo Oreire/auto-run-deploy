@@ -19,5 +19,5 @@
 # Successful deployment must indicate access to the website/page via a public browser
 
 
-# Amend the Security Group to restric access to Nginx_Server to your IP address and verfiry with any    public browser
+# Amend the Security Group to restrict access to Nginx_Server to your IP address and verify with any    public browser
 
