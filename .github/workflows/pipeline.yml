@@ -25,5 +25,4 @@ jobs:
         sudo yum install nginx -y
         sudo service nginx start
         sudo mv ~/index.html /usr/share/nginx/html '
-
-       
+   
