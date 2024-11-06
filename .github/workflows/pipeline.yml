@@ -26,6 +26,3 @@ jobs:
         sudo service ngix start
         sudo mv ~/index.html /usr/share/nginx/html
         '
-
-
-
