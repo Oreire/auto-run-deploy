@@ -15,13 +15,13 @@ jobs:
        env:
         PRIVATE_KEY: ${ { secret.PRIVATE_SECRET_KEY } }
        run: |
-        echo "$PRIVATE_KEY" > NewAxeCred-3.pem && chmod 600 NewAxeCred-3.pem
+        echo "$PRIVATE_KEY" > SSH-KEY.pem && chmod 600 SSH-KEY.pem
         
         echo "copying local file into EC2 machine"
-        scp -o StrictHostKeyChecking=no -i NewAxeCred-3.pem index.html ec2-user@ec2-18-175-134-165.eu-west-2.compute.amazonaws.com:~/
+        scp -o StrictHostKeyChecking=no -i SSH-KEY.pem index.html ec2-user@ec2-18-175-134-165.eu-west-2.compute.amazonaws.com:~/
         
         echo "connecting to EC2 machine via ssh & installing nginx"
-        ssh -o StrictHostKeyChecking=no -i NewAxeCred-3.pem ec2-user@ec2-18-175-134-165.eu-west-2.compute.amazonaws.com '
+        ssh -o StrictHostKeyChecking=no -i SSH-KEY.pem ec2-user@ec2-18-175-134-165.eu-west-2.compute.amazonaws.com '
         sudo yum install nginx -y
         sudo service ngix start
         sudo mv ~/index.html /usr/share/nginx/html
